@@ -1,0 +1,151 @@
+<!--To see what you have created, drag this file into a web browser-->
+
+<!--Document declaration type. In this case the latest version of html. 
+    Signifies the start of the document-->
+<!DOCTYPE html>
+<!--Head element IDs the top of the doc and includes any metadata about the 
+    page. Info here not displayed on webpage itself-->
+<html lang="en">
+    <head>
+        <!--Metadata is information regarding the webpage such as what 
+            character set you would use-->
+        <meta charset="utf-8">
+        <!--Style tag defines the style info for the document-->
+        <style>
+            body {font-family: Arial;}
+            /* Style the tab  */
+            .tab 
+            {
+                overflow: hidden; /* Hide overflow content on the box */
+                border: 1px solid #ccc; /* Border styling of the box*/
+                background-color: #f1f1f1; 
+            }
+            /* Style the specific buttons */
+            .tab button 
+            {
+                background-color: inherit; /* Inherit from the color of the 
+                                            tab itself */
+                float: left; /* Box will float on the left of the screen */
+                border: none; 
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px; /* Space between content and border */
+                transition: 0.3s; /* Duration to change from tab to pagelink */
+                font-size: 17px;
+            }
+            /* Change the background color when hovering over the button */
+            .tab button:hover
+            {
+                background-color: #ddd;
+            }
+            /* Create an active color change when button link is active */
+            .tab button.active 
+            {
+                background-color: #ccc;
+            }
+            /* Style the content */
+            .tabcontent 
+            {
+                display: none; /* Display behavior of the element */
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none; 
+            }
+        </style>
+        <title>
+            Nahom's Webpage
+        </title>
+    </head>
+    <!--Any and all visible content for the page will be seen here-->
+    <body>
+        <!--h1 element indicates a header-->
+        <!--p element indicates a paragraph-->
+        <h1>
+            Nahom's BIOPAGE
+        </h1>
+        <p>
+            Each tab button will take you to a different piece of Nahom's Life.
+        </p>
+        <!--Div is points to elements of the same class name-->
+        <div class = "tab">
+            <button class = "tablinks" onClick="openpage(event, 'Childhood')">
+                Childhood
+            </button>
+            <button class="tablinks" onClick="openpage(event, 'College')">
+                College
+            </button>
+            <button class="tablinks" onClick="openpage(event, 'Track and Field')">
+                Track and Field
+            </button>
+            <button class="tablinks" onClick="openpage(event, 'Career')">
+                Career
+            </button>
+        </div>
+        <div id= "Childhood" class= "tabcontent">
+            <h2>
+                Childhood
+            </h2>
+            <p>
+                I grew up in Snellville, GA which is a suburb east of Atlanta.
+                 I have 2 younger brothers and a younger sister.
+                 I grew up around athletics specializing in soccer and basketball
+                  before switching to track and field. I also swam in high school. 
+                  My parents were born and raised in Eritrea.
+            </p>
+        </div>
+        <div id= "College" class="tabcontent">
+            <h2>
+                College
+            </h2>
+            <p>
+                I graduated from Georgia Tech with a bachelor's and master's in 
+                 computer engineering. I ran track and field while at Georgia Tech. I was
+                  a GEM fellow during my graduate studies. I hold every distance record
+                   3000m and longer for Georgia Tech's Track and Field team. I graduated 
+                   highest honors in my undergrad. I specialized in embedded systems and robotics.
+            </p>
+        </div>
+        <div id= "Track and Field" class="tabcontent">
+            <h2>
+                Track and Field
+            </h2>
+            <p>
+                I joined the Reebok Boston Track Club when I moved to Charlottesville, VA 
+                for my engineering career. I specialize in the long distance track events. 
+                My current PRs are 3:44, 4:01, 7:57, 13:41, 29:07 for 1500, 1 mile, 3k, 5k , 
+                and 10k.  
+            </p>
+        </div>
+        <div id= "Career" class="tabcontent">
+            <h2>
+                Career
+            </h2>
+            <p>
+                I have had 4 internships before landing my first full time engineering position. I 
+                worked at intel for 3 internships in physical design, soc design, and rtl verification. I did
+                 my fourth internship with The Home Depot as a software engineer specializing in 
+                 SLAM based algorithms. I now work at a startup called Everactive as a Senior Engineer 
+                 in embedded software design. 
+            </p>
+        </div>
+        <!--functions allow for the opening and utilization of classes-->
+        <script>
+            function openpage(event, page)
+            {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++)
+                {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++)
+                {
+                    tabcontent[i].className = tablinks[i].className.replace(" active","");
+                }
+                document.getElementById(page).style.display = "block";
+                event.currentTarget.className += " active";
+            }
+        </script>
+    </body>
+</html>
